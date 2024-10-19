@@ -5,7 +5,7 @@
 
 # User-specific files
 *.rsuser
-*.suo
+*.suo   
 *.user
 *.userosscache
 *.sln.docstates
@@ -398,3 +398,4 @@ FodyWeavers.xsd
 *.sln.iml
 
 .env
+*.exe
