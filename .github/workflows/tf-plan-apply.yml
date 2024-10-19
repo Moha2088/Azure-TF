@@ -102,3 +102,7 @@ jobs:
     - name: Terraform Apply
       # if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
       run: terraform apply -auto-approve -input=false -var "subscription_id=${{ env.SUBSCRIPTION_ID }}" -var "tenant_id=${{ env.TENANT_ID }}"
+
+      # Show current state
+    - name: Show current state
+      run: terraform show
