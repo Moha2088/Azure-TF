@@ -45,7 +45,7 @@ resource "azurerm_mssql_server" "ms_server" {
 
 resource "azurerm_application_insights" "insights" {
   name                = "insightcreatedbyterraform"
-  resource_group_name = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
   application_type    = "web"
 }
@@ -60,7 +60,7 @@ resource "azurerm_service_plan" "serviceplan" {
 
 resource "azurerm_linux_function_app" "function" {
   name                       = "functionbyterraform"
-  resource_group_name        = azurerm_resource_group.rg.location
+  resource_group_name        = azurerm_resource_group.rg.name
   location                   = "northeurope"
   service_plan_id            = azurerm_service_plan.serviceplan.id
   storage_account_name       = azurerm_storage_account.sa.name
