@@ -18,3 +18,18 @@ resource "azurerm_key_vault" "vault" {
   resource_group_name = azurerm_resource_group.rg.name
   sku_name            = "standard"
 }
+
+resource "azurerm_monitor_metric_alert" "metric" {
+  scopes              = [azurerm_storage_account.sa.id]
+  name                = "alertcreatedbyterraform"
+  description         = "Metric alert created by terraform"
+  resource_group_name = azurerm_resource_group.rg.name
+
+  criteria {
+    metric_namespace = "Microsoft.Storage/storageAccounts"
+    metric_name      = "Transaction"
+    operator         = "GreaterThan"
+    threshold        = "200"
+    aggregation      = "Total"
+  }
+}
