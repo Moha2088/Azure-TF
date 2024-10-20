@@ -38,7 +38,7 @@ resource "azurerm_mssql_server" "ms_server" {
   name                         = "servercreatedbyterraform"
   resource_group_name          = azurerm_resource_group.rg.name
   location                     = "northeurope"
-  version                      = "2.0"
+  version                      = "12.0"
   administrator_login          = "adminloginmo"
   administrator_login_password = "adminloginmo123"
 }
