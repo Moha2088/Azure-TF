@@ -44,29 +44,27 @@ resource "azurerm_mssql_server" "ms_server" {
 }
 
 resource "azurerm_application_insights" "insights" {
-  name = "insightcreatedbyterraform"
+  name                = "insightcreatedbyterraform"
   resource_group_name = azurerm_resource_group.rg.location
-  location = azurerm_resource_group.rg.location
-  application_type = "web"
+  location            = azurerm_resource_group.rg.location
+  application_type    = "web"
 }
 
 resource "azurerm_service_plan" "serviceplan" {
-  name = "planceratedbyterraform"
+  name                = "planceratedbyterraform"
   resource_group_name = azurerm_resource_group.rg.name
-  location = "northeurope"
-  os_type = "Linux"
-  sku_name = "P1v2"
+  location            = "northeurope"
+  os_type             = "Linux"
+  sku_name            = "P1v2"
 }
 
 resource "azurerm_linux_function_app" "function" {
-  name = "functionbyterraform"
-  resource_group_name = azurerm_resource_group.rg.location
-  location = "northeurope"
-  service_plan_id = azurerm_service_plan.serviceplan.id
-  storage_account_name = azurerm_storage_account.sa.name
+  name                       = "functionbyterraform"
+  resource_group_name        = azurerm_resource_group.rg.location
+  location                   = "northeurope"
+  service_plan_id            = azurerm_service_plan.serviceplan.id
+  storage_account_name       = azurerm_storage_account.sa.name
   storage_account_access_key = azurerm_storage_account.sa.primary_access_key
 
-  site_config {
-    
-  }
+  site_config {}
 }
