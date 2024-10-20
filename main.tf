@@ -40,5 +40,5 @@ resource "azurerm_mssql_server" "ms_server" {
   location                     = "northeurope"
   version                      = "12.0"
   administrator_login          = "adminloginmo"
-  administrator_login_password = "adminloginmo123"
+  administrator_login_password = "AzMohac12345s"
 }
