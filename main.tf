@@ -27,7 +27,7 @@ resource "azurerm_monitor_metric_alert" "metric" {
 
   criteria {
     metric_namespace = "Microsoft.Storage/storageAccounts"
-    metric_name      = "Transaction"
+    metric_name      = "Transactions"
     operator         = "GreaterThan"
     threshold        = "200"
     aggregation      = "Total"
